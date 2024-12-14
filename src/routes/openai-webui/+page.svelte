@@ -1,0 +1,44 @@
+<script>
+    // You can add any script or data fetching here if needed
+  </script>
+  
+  <main class="p-6 bg-white rounded-lg shadow-lg mt-8">
+    <h2 class="text-3xl font-semibold mb-4 text-gray-800">OpenAI WebUI</h2>
+    <p class="mb-4 text-gray-600">
+      Below is an embedded view of the OpenAI WebUI. This interface allows you to interact with OpenAI models directly. 
+      For more information or to contribute, visit the 
+      <a href="https://github.com/open-webui/open-webui" target="_blank" class="text-blue-500 hover:text-blue-700">OpenAI WebUI GitHub page</a>.
+    </p>
+    <p class="mb-4 text-gray-600">
+      The OpenAI WebUI provides a user-friendly interface for interacting with various AI models. It includes features such as:
+    </p>
+    <ul class="list-disc list-inside mb-4 text-gray-600">
+      <li>Model selection and configuration</li>
+      <li>Interactive prompt creation</li>
+      <li>Response visualization</li>
+      <li>History tracking</li>
+      <li>Exporting and sharing capabilities</li>
+    </ul>
+    <p class="mb-4 text-gray-600">
+      To get started, simply use the interface below. If you have any questions or need further assistance, please refer to the documentation available on the GitHub page.
+    </p>
+    <p class="mb-4 text-red-500 font-bold">
+      Note: To use this application, you will need to sign up with me. Please use the Sign up link in the app below.
+    </p>
+    <iframe 
+      src="https://f2b040a11bac.ngrok.app/"
+      width="100%" 
+      height="600" 
+      class="border border-gray-300 rounded-lg">
+    </iframe>
+  </main>
+  
+  <style>
+    main {
+      font-family: Arial, sans-serif;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+  

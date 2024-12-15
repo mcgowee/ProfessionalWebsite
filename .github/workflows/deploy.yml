@@ -30,7 +30,7 @@ jobs:
 
       # Step 5: Build the project
       - name: Build project
-        run: npx vite build
+        run: npm run build
 
       # Step 6: Debug secrets (optional)
       - name: Debug Secrets

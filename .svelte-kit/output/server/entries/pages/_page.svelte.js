@@ -85,7 +85,7 @@ const Service = create_ssr_component(($$result, $$props, $$bindings, slots) => {
         "Analyzing and forecasting time-dependent data using AI models to identify trends, seasonality, and anomalies."
       ],
       description: "Leverage Time Series Analysis to analyze and forecast time-dependent data, identifying trends, seasonality, and anomalies with AI models.",
-      imgUrl: "../src/assets/time-series-analysis.jpg"
+      imgUrl: "../static/time-series-analysis.jpg"
     }
   ];
   return `${validate_component(SectionWrapper, "SectionWrapper").$$render($$result, { id: "services" }, {}, {

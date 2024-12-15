@@ -57,7 +57,7 @@
             ],
             description:
                 "Leverage Time Series Analysis to analyze and forecast time-dependent data, identifying trends, seasonality, and anomalies with AI models.",
-            imgUrl: "../src/assets/time-series-analysis.jpg",
+            imgUrl: "../static/time-series-analysis.jpg",
         },
     ];
 </script>

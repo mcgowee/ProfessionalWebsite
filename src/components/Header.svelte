@@ -25,8 +25,8 @@
 <div class="header mt-8 ml-4">
   <div class="flex items-center">
     <a href="/">
-      <img src="/src/assets/logo.jpg" alt="Logo" class="h-24 w-24 mr-4" />
-   </a>
+      <img src="/logo.jpg" alt="Logo" class="logo" />
+    </a>
     <div>
       <a href="/">
         <h1 class="font-semibold text-5xl mt-4">

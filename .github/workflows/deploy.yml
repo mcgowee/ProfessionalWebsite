@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,11 +24,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build the project
+      # Step 4: Fix permissions for Vite
+      - name: Fix permissions for Vite
+        run: chmod +x ./node_modules/.bin/vite
+
+      # Step 5: Build the project
       - name: Build project
         run: npx vite build
 
-      # Step 5: Deploy files to Hostinger via FTP
+      # Step 6: Deploy files to Hostinger via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:

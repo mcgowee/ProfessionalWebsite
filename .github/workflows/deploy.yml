@@ -30,7 +30,7 @@ jobs:
 
       # Step 5: Deploy files to Hostinger via FTP
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.5.0
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}

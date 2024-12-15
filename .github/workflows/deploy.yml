@@ -31,7 +31,6 @@ jobs:
       # Step 5: Build the project
       - name: Build project
         run: npx vite build
-
         
       # Step 6: Deploy files to Hostinger via FTP
       - name: Deploy via FTP

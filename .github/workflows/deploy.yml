@@ -31,7 +31,13 @@ jobs:
       # Step 5: Build the project
       - name: Build project
         run: npx vite build
-        
+
+      # Step 5: Debug secrets (optional)
+      - name: Debug Secrets
+        run: |
+          echo "FTP_HOST: ${{ secrets.FTP_HOST }}"
+          echo "FTP_USERNAME: ${{ secrets.FTP_USERNAME }}"
+                  
       # Step 6: Deploy files to Hostinger via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0

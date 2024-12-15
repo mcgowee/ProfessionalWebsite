@@ -45,7 +45,7 @@
     <div class:dropdown-menu={true} class:open={isOpen}>
        <a href="/chat" class="dropdown-item" role="menuitem">
         Simple Chat
-        <span class="text-gray-500 block">Local LLM using Ollama and Llama3 for AI responses.</span>
+        <span class="text-gray-500 block">Local  using Ollama and Llama3 for AI responses.</span>
        </a>
        <a href="/chat3" class="dropdown-item" role="menuitem">
         OpenAI's ChatGPT

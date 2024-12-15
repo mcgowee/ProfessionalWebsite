@@ -32,6 +32,7 @@ jobs:
       - name: Build project
         run: npx vite build
 
+        
       # Step 6: Deploy files to Hostinger via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0

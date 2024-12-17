@@ -12,7 +12,8 @@ export const nodes = [
 	() => import('./nodes/8'),
 	() => import('./nodes/9'),
 	() => import('./nodes/10'),
-	() => import('./nodes/11')
+	() => import('./nodes/11'),
+	() => import('./nodes/12')
 ];
 
 export const server_loads = [];
@@ -27,7 +28,8 @@ export const dictionary = {
 		"/contact": [8],
 		"/openai-webui": [9],
 		"/streamlit_app": [10],
-		"/streamlit_llm": [11]
+		"/streamlit_llm": [11],
+		"/wordle": [12]
 	};
 
 export const hooks = {

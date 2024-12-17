@@ -91,5 +91,9 @@
     </li>
     <li><a href="/openai-webui" class="text-white hover:text-indigo-400">OpenAI WebUI</a></li>
     <li><a href="/streamlit_llm" class="text-white hover:text-indigo-400">Streamlit LLM</a></li>
+    <li><a href="/wordle" class="text-white hover:text-indigo-400">Wordle Solver</a></li>
+    <slot />
+    
+
   </ul>
 </nav>

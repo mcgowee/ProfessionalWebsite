@@ -68,7 +68,7 @@
       "_Header.svelte_svelte_type_style_lang.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.BVhnR-Uw.css"
+      "_app/immutable/assets/_layout.Ci6MIRV6.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -190,6 +190,18 @@
     ],
     "css": [
       "_app/immutable/assets/_page.BUe_d9u1.css"
+    ]
+  },
+  "src/routes/wordle/+page.svelte": {
+    "file": "entries/pages/wordle/_page.svelte.js",
+    "name": "entries/pages/wordle/_page.svelte",
+    "src": "src/routes/wordle/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.D2FDdvQo.css"
     ]
   }
 }

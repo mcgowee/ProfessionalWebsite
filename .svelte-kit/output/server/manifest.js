@@ -10,7 +10,7 @@ return {
 	assets: new Set(["ChinookDB.png","favicon.png","headshot.jpg","logo.jpg","time-series-analysis.jpg"]),
 	mimeTypes: {".png":"image/png",".jpg":"image/jpeg"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.DFoBrwNm.js","app":"_app/immutable/entry/app.B5xzPnFn.js","imports":["_app/immutable/entry/start.DFoBrwNm.js","_app/immutable/chunks/entry.CAELvYk4.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/entry/app.B5xzPnFn.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/chunks/index.9byxY5b-.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
+		client: {"start":"_app/immutable/entry/start.Djlwb9Vs.js","app":"_app/immutable/entry/app.DLwh-ZPz.js","imports":["_app/immutable/entry/start.Djlwb9Vs.js","_app/immutable/chunks/entry.DDyCpQEM.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/entry/app.DLwh-ZPz.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/chunks/index.9byxY5b-.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),
@@ -23,7 +23,8 @@ return {
 			__memo(() => import('./nodes/8.js')),
 			__memo(() => import('./nodes/9.js')),
 			__memo(() => import('./nodes/10.js')),
-			__memo(() => import('./nodes/11.js'))
+			__memo(() => import('./nodes/11.js')),
+			__memo(() => import('./nodes/12.js'))
 		],
 		routes: [
 			{
@@ -94,6 +95,13 @@ return {
 				pattern: /^\/streamlit_llm\/?$/,
 				params: [],
 				page: { layouts: [0,], errors: [1,], leaf: 11 },
+				endpoint: null
+			},
+			{
+				id: "/wordle",
+				pattern: /^\/wordle\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 12 },
 				endpoint: null
 			}
 		],

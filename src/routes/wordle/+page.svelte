@@ -126,6 +126,7 @@
           focusedIndex = index;
           console.log("Focused on index:", focusedIndex); // Debug log
         }}
+        on:blur={() => (focusedIndex = null)} 
       />
     {/each}
   </div>

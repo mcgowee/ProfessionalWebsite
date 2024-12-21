@@ -47,6 +47,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: build/
-          server-dir: /home/domains/earl-mcgowen.com/public_html/
-          delete: true
+          server-dir: /domains/earl-mcgowen.com/public_html/
+          
   

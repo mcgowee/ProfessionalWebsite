@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/wordle/+page.svelte";
+export { default as component } from "../../../../src/routes/streamlit_llm/+page.svelte";

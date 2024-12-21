@@ -44,7 +44,7 @@ declare module '$env/static/private' {
 	export const CUDA_PATH_V12_3: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_10856: string;
+	export const EFC_32740: string;
 	export const GIT_ASKPASS: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
@@ -166,7 +166,7 @@ declare module '$env/dynamic/private' {
 		CUDA_PATH_V12_3: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_10856: string;
+		EFC_32740: string;
 		GIT_ASKPASS: string;
 		HOME: string;
 		HOMEDRIVE: string;

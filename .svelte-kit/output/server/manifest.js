@@ -10,7 +10,7 @@ return {
 	assets: new Set(["ChinookDB.png","favicon.png","headshot.jpg","logo.jpg","time-series-analysis.jpg"]),
 	mimeTypes: {".png":"image/png",".jpg":"image/jpeg"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.C7NpV1Ac.js","app":"_app/immutable/entry/app.eGSt8lA0.js","imports":["_app/immutable/entry/start.C7NpV1Ac.js","_app/immutable/chunks/entry.GqDAb_Wq.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/entry/app.eGSt8lA0.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/chunks/index.9byxY5b-.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
+		client: {"start":"_app/immutable/entry/start.BZeVJPae.js","app":"_app/immutable/entry/app.0E_oFcbn.js","imports":["_app/immutable/entry/start.BZeVJPae.js","_app/immutable/chunks/entry.DxlijrqA.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/entry/app.0E_oFcbn.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/chunks/index.9byxY5b-.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),
@@ -24,7 +24,8 @@ return {
 			__memo(() => import('./nodes/9.js')),
 			__memo(() => import('./nodes/10.js')),
 			__memo(() => import('./nodes/11.js')),
-			__memo(() => import('./nodes/12.js'))
+			__memo(() => import('./nodes/12.js')),
+			__memo(() => import('./nodes/13.js'))
 		],
 		routes: [
 			{
@@ -63,6 +64,13 @@ return {
 				endpoint: null
 			},
 			{
+				id: "/chatapp",
+				pattern: /^\/chatapp\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 8 },
+				endpoint: null
+			},
+			{
 				id: "/chat",
 				pattern: /^\/chat\/?$/,
 				params: [],
@@ -73,35 +81,35 @@ return {
 				id: "/contact",
 				pattern: /^\/contact\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 8 },
+				page: { layouts: [0,], errors: [1,], leaf: 9 },
 				endpoint: null
 			},
 			{
 				id: "/openai-webui",
 				pattern: /^\/openai-webui\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 9 },
+				page: { layouts: [0,], errors: [1,], leaf: 10 },
 				endpoint: null
 			},
 			{
 				id: "/streamlit_app",
 				pattern: /^\/streamlit_app\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 10 },
+				page: { layouts: [0,], errors: [1,], leaf: 11 },
 				endpoint: null
 			},
 			{
 				id: "/streamlit_llm",
 				pattern: /^\/streamlit_llm\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 11 },
+				page: { layouts: [0,], errors: [1,], leaf: 12 },
 				endpoint: null
 			},
 			{
 				id: "/wordle",
 				pattern: /^\/wordle\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 12 },
+				page: { layouts: [0,], errors: [1,], leaf: 13 },
 				endpoint: null
 			}
 		],

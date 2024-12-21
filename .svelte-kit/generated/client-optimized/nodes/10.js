@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/streamlit_app/+page.svelte";
+export { default as component } from "../../../../src/routes/openai-webui/+page.svelte";

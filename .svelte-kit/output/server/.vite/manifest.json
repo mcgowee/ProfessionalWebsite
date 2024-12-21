@@ -142,6 +142,15 @@
       "_app/immutable/assets/Spinner.Foo1jJFV.css"
     ]
   },
+  "src/routes/chatapp/+page.svelte": {
+    "file": "entries/pages/chatapp/_page.svelte.js",
+    "name": "entries/pages/chatapp/_page.svelte",
+    "src": "src/routes/chatapp/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js"
+    ]
+  },
   "src/routes/contact/+page.svelte": {
     "file": "entries/pages/contact/_page.svelte.js",
     "name": "entries/pages/contact/_page.svelte",

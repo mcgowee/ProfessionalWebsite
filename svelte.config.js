@@ -1,23 +1,16 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
+export default {
   kit: {
-    // Use the static adapter
     adapter: adapter({
-      // Default options for the static adapter
-      pages: 'build', // where to generate static files
-      assets: 'build', // where to place assets
-      fallback: 'index.html', // single-page app fallback
-      precompress: false // set to true if you want precompressed .gz/.br files
+      pages: 'build', // Output folder for static files
+      assets: 'build', // Output folder for assets
+      fallback: 'index.html', // Fallback for SPA routing
     }),
-    // Optional: Specify base paths for deployment under subdirectories
     paths: {
-      base: '', // Adjust if hosting under a subpath
-    }
+      base: '', // Base path for deployment (update if deploying to a subdirectory)
+    },
   },
-  preprocess: vitePreprocess()
+  preprocess: vitePreprocess(),
 };
-
-export default config;

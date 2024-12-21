@@ -10,7 +10,7 @@ return {
 	assets: new Set(["ChinookDB.png","favicon.png","headshot.jpg","logo.jpg","time-series-analysis.jpg"]),
 	mimeTypes: {".png":"image/png",".jpg":"image/jpeg"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.DrFXLGgR.js","app":"_app/immutable/entry/app.0TPKXwaI.js","imports":["_app/immutable/entry/start.DrFXLGgR.js","_app/immutable/chunks/entry.YMLDlLpE.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/entry/app.0TPKXwaI.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/chunks/index.9byxY5b-.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
+		client: {"start":"_app/immutable/entry/start.D5A4a7cm.js","app":"_app/immutable/entry/app.D4EYTgIl.js","imports":["_app/immutable/entry/start.D5A4a7cm.js","_app/immutable/chunks/entry.Dr2bd20y.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/entry/app.D4EYTgIl.js","_app/immutable/chunks/scheduler.CZ49yVq8.js","_app/immutable/chunks/index.9byxY5b-.js"],"stylesheets":[],"fonts":[],"uses_env_dynamic_public":false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),

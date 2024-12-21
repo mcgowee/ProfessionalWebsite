@@ -47,6 +47,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: build/
-          server-dir: /domains/linen-raccoon-809066.hostingersite.com/public_html/
+          server-dir: /public_html/
+
 
     

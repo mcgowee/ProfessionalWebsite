@@ -147,7 +147,7 @@
       console.log("Setting color to 'g' for index:", focusedIndex);
       setColor("g");
       console.log("Colors array:", colors);
-    }}>GREEN</button>
+    }}>Green</button>
   </div>
   
 

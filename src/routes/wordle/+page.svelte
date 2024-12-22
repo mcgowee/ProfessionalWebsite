@@ -1,26 +1,35 @@
 <script>
-  // Letters and colors for the grid
-  let letters = ["", "", "", "", ""];
-  let colors = ["b", "b", "b", "b", "b"]; // Default color is blank ('b')
+  import { onMount } from 'svelte';
 
-  // Track the currently focused index
-  let focusedIndex = null;
+  let letters = ['a', 'b', 'c', 'd', 'e']; // Example data
+  let colors = ['b', 'b', 'g', 'b', 'b']; // Example data
+  let responseMessage = ''; // To display response from Flask
 
-  // Function to set the color of the currently focused box
-  function setColor(color) {
-  if (focusedIndex !== null) {
-    colors = colors.map((c, idx) => (idx === focusedIndex ? color : c));
-  }
-}
+  async function submitGuess() {
+    try {
+      const response = await fetch('http://45.132.241.60/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ letters, colors })
+      });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-  // Submit the guess (for processing logic later)
-  function submitGuess() {
-    console.log("Guess:", letters.join(""));
-    console.log("Colors:", colors.join(""));
-    // Add backend or other processing logic here
+      const result = await response.json();
+      console.log('Response from Flask:', result);
+      responseMessage = result.message; // Display response message
+    } catch (error) {
+      console.error('Error connecting to Flask API:', error);
+      responseMessage = 'Failed to connect to the server.';
+    }
   }
 </script>
+
+<button on:click={submitGuess}>Submit Guess</button>
+<p>{responseMessage}</p>
+
 
 <style>
   .container {
@@ -126,7 +135,6 @@
           focusedIndex = index;
           console.log("Focused on index:", focusedIndex); // Debug log
         }}
-        on:blur={() => (focusedIndex = null)} 
       />
     {/each}
   </div>

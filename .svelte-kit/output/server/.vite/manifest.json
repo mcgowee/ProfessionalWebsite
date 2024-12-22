@@ -30,21 +30,27 @@
     "file": "chunks/internal.js",
     "name": "internal",
     "imports": [
-      "_ssr.js"
+      "_ssr.js",
+      "_ssr2.js"
     ]
   },
   "_ssr.js": {
     "file": "chunks/ssr.js",
     "name": "ssr"
   },
-  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+  "_ssr2.js": {
+    "file": "chunks/ssr2.js",
+    "name": "ssr"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/svelte-4/error.svelte": {
     "file": "entries/fallbacks/error.svelte.js",
     "name": "entries/fallbacks/error.svelte",
-    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/svelte-4/error.svelte",
     "isEntry": true,
     "imports": [
       "_ssr.js",
-      "_exports.js"
+      "_exports.js",
+      "_ssr2.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/server/index.js": {

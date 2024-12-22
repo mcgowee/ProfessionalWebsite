@@ -6,25 +6,26 @@
   let responseMessage = ''; // To display response from Flask
 
   async function submitGuess() {
-    try {
-      const response = await fetch('http://45.132.241.60/api/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ letters, colors })
-      });
+  try {
+    const response = await fetch('http://45.132.241.60/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ letters, colors })
+    });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log('Response from Flask:', result);
-      responseMessage = result.message; // Display response message
-    } catch (error) {
-      console.error('Error connecting to Flask API:', error);
-      responseMessage = 'Failed to connect to the server.';
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+    const result = await response.json();
+    console.log('Response from Flask:', result);
+    responseMessage = result.message;
+  } catch (error) {
+    console.error('Error connecting to Flask API:', error);
+    responseMessage = 'Failed to connect to the server.';
   }
+}
+
 </script>
 
 <button on:click={submitGuess}>Submit Guess</button>

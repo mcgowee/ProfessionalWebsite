@@ -66,6 +66,9 @@ function make_trackable(url, callback, search_params_callback) {
     tracked[Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
       return inspect(url, opts);
     };
+    tracked.searchParams[Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
+      return inspect(url.searchParams, opts);
+    };
   }
   {
     disable_hash(tracked);
@@ -77,7 +80,7 @@ function disable_hash(url) {
   Object.defineProperty(url, "hash", {
     get() {
       throw new Error(
-        "Cannot access event.url.hash. Consider using `$page.url.hash` inside a component instead"
+        "Cannot access event.url.hash. Consider using `page.url.hash` inside a component instead"
       );
     }
   });

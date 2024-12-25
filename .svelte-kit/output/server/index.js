@@ -1,10 +1,9 @@
+import { B as BROWSER } from "./chunks/events.js";
 import { b as base, a as assets, o as override, r as reset, p as public_env, s as safe_public_env, c as read_implementation, d as options, e as set_private_env, f as prerendering, g as set_public_env, h as get_hooks, i as set_safe_public_env, j as set_read_implementation } from "./chunks/internal.js";
-import { m as make_trackable, d as disable_search, n as normalize_path, a as add_data_suffix, r as resolve, b as decode_pathname, h as has_data_suffix, s as strip_data_suffix, c as decode_params, v as validate_layout_server_exports, e as validate_layout_exports, f as validate_page_server_exports, g as validate_page_exports, i as validate_server_exports } from "./chunks/exports.js";
+import { m as make_trackable, d as disable_search, w as writable, r as readable, n as normalize_path, a as add_data_suffix, b as resolve, c as decode_pathname, h as has_data_suffix, s as strip_data_suffix, e as decode_params, v as validate_layout_server_exports, f as validate_layout_exports, g as validate_page_server_exports, i as validate_page_exports, j as validate_server_exports } from "./chunks/exports.js";
 import * as devalue from "devalue";
-import { n as noop, s as safe_not_equal } from "./chunks/ssr.js";
 import { parse, serialize } from "cookie";
 import * as set_cookie_parser from "set-cookie-parser";
-const BROWSER = false;
 const SVELTE_KIT_ASSETS = "/_svelte_kit_assets";
 const ENDPOINT_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"];
 const PAGE_METHODS = ["GET", "POST", "HEAD"];
@@ -805,53 +804,6 @@ async function stream_to_string(stream) {
   }
   return result;
 }
-const subscriber_queue = [];
-function readable(value, start) {
-  return {
-    subscribe: writable(value, start).subscribe
-  };
-}
-function writable(value, start = noop) {
-  let stop;
-  const subscribers = /* @__PURE__ */ new Set();
-  function set(new_value) {
-    if (safe_not_equal(value, new_value)) {
-      value = new_value;
-      if (stop) {
-        const run_queue = !subscriber_queue.length;
-        for (const subscriber of subscribers) {
-          subscriber[1]();
-          subscriber_queue.push(subscriber, value);
-        }
-        if (run_queue) {
-          for (let i = 0; i < subscriber_queue.length; i += 2) {
-            subscriber_queue[i][0](subscriber_queue[i + 1]);
-          }
-          subscriber_queue.length = 0;
-        }
-      }
-    }
-  }
-  function update(fn) {
-    set(fn(value));
-  }
-  function subscribe(run, invalidate = noop) {
-    const subscriber = [run, invalidate];
-    subscribers.add(subscriber);
-    if (subscribers.size === 1) {
-      stop = start(set, update) || noop;
-    }
-    run(value);
-    return () => {
-      subscribers.delete(subscriber);
-      if (subscribers.size === 0 && stop) {
-        stop();
-        stop = null;
-      }
-    };
-  }
-  return { set, update, subscribe };
-}
 function hash(...values) {
   let hash2 = 5381;
   for (const value of values) {
@@ -1351,12 +1303,16 @@ async function render_response({
   let base$1 = base;
   let assets$1 = assets;
   let base_expression = s(base);
-  if (!state.prerendering?.fallback) {
-    const segments = event.url.pathname.slice(base.length).split("/").slice(2);
-    base$1 = segments.map(() => "..").join("/") || ".";
-    base_expression = `new URL(${s(base$1)}, location).pathname.slice(0, -1)`;
-    if (!assets || assets[0] === "/" && assets !== SVELTE_KIT_ASSETS) {
-      assets$1 = base$1;
+  {
+    if (!state.prerendering?.fallback) {
+      const segments = event.url.pathname.slice(base.length).split("/").slice(2);
+      base$1 = segments.map(() => "..").join("/") || ".";
+      base_expression = `new URL(${s(base$1)}, location).pathname.slice(0, -1)`;
+      if (!assets || assets[0] === "/" && assets !== SVELTE_KIT_ASSETS) {
+        assets$1 = base$1;
+      }
+    } else if (options2.hash_routing) {
+      base_expression = "new URL('.', location).pathname.slice(0, -1)";
     }
   }
   if (page_config.ssr) {
@@ -1409,7 +1365,7 @@ async function render_response({
       for (const url of node.imports) modulepreloads.add(url);
       for (const url of node.stylesheets) stylesheets.add(url);
       for (const url of node.fonts) fonts.add(url);
-      if (node.inline_styles) {
+      if (node.inline_styles && !client.inline) {
         Object.entries(await node.inline_styles()).forEach(([k, v]) => inline_styles.set(k, v));
       }
     }
@@ -1427,6 +1383,10 @@ async function render_response({
     }
     return `${assets$1}/${path}`;
   };
+  if (client.inline?.style) {
+    head += `
+	<style>${client.inline.style}</style>`;
+  }
   if (inline_styles.size > 0) {
     const content = Array.from(inline_styles.values()).join("\n");
     const attributes = [];
@@ -1482,17 +1442,19 @@ async function render_response({
     if (client.uses_env_dynamic_public && state.prerendering) {
       modulepreloads.add(`${options2.app_dir}/env.js`);
     }
-    const included_modulepreloads = Array.from(modulepreloads, (dep) => prefixed(dep)).filter(
-      (path) => resolve_opts.preload({ type: "js", path })
-    );
-    for (const path of included_modulepreloads) {
-      link_header_preloads.add(`<${encodeURI(path)}>; rel="modulepreload"; nopush`);
-      if (options2.preload_strategy !== "modulepreload") {
-        head += `
+    if (!client.inline) {
+      const included_modulepreloads = Array.from(modulepreloads, (dep) => prefixed(dep)).filter(
+        (path) => resolve_opts.preload({ type: "js", path })
+      );
+      for (const path of included_modulepreloads) {
+        link_header_preloads.add(`<${encodeURI(path)}>; rel="modulepreload"; nopush`);
+        if (options2.preload_strategy !== "modulepreload") {
+          head += `
 		<link rel="preload" as="script" crossorigin="anonymous" href="${path}">`;
-      } else if (state.prerendering) {
-        head += `
+        } else if (state.prerendering) {
+          head += `
 		<link rel="modulepreload" href="${path}">`;
+        }
       }
     }
     const blocks = [];
@@ -1559,7 +1521,9 @@ ${indent}	${hydrate.join(`,
 ${indent}	`)}
 ${indent}}`);
     }
-    const boot = client.app ? `Promise.all([
+    const boot = client.inline ? `${client.inline.script}
+
+					__sveltekit_${options2.version_hash}.app.start(${args.join(", ")});` : client.app ? `Promise.all([
 						import(${s(prefixed(client.start))}),
 						import(${s(prefixed(client.app))})
 					]).then(([kit, app]) => {
@@ -2599,6 +2563,9 @@ async function respond(request, options2, manifest, state) {
       return text(csrf_error.body.message, { status: csrf_error.status });
     }
   }
+  if (options2.hash_routing && url.pathname !== base + "/" && url.pathname !== "/[fallback]") {
+    return text("Not found", { status: 404 });
+  }
   let rerouted_path;
   try {
     rerouted_path = options2.hooks.reroute({ url: new URL(url) }) ?? url.pathname;
@@ -2840,7 +2807,7 @@ async function respond(request, options2, manifest, state) {
           preload: opts.preload || default_preload
         };
       }
-      if (state.prerendering?.fallback) {
+      if (options2.hash_routing || state.prerendering?.fallback) {
         return await render_response({
           event: event2,
           options: options2,

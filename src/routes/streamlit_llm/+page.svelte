@@ -20,7 +20,7 @@
         margin-bottom: 2rem;
         text-align: left; /* Align text to the left */
     }
-    .info p, .questions p {
+    .info p {
         margin-bottom: 1rem;
         color: gray;
     }
@@ -69,5 +69,5 @@
             <li>What is the average number of days since the last purchase by city?</li>
         </ul>
     </div>
-    <iframe src="http://localhost:8501"></iframe>
+    <iframe src="http://localhost:8501" title="Streamlit Application"></iframe>
 </main>

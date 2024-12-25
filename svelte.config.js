@@ -4,13 +4,24 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 export default {
   kit: {
     adapter: adapter({
-      pages: 'build', // Output folder for static files
-      assets: 'build', // Output folder for assets
-      fallback: 'index.html', // Fallback for SPA routing
+      pages: 'build',
+      assets: 'build',
+      fallback: 'index.html',
     }),
     paths: {
-      base: '', // Base path for deployment (update if deploying to a subdirectory)
+      base: '',
     },
   },
   preprocess: vitePreprocess(),
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'assets/[name].[hash].js',
+          chunkFileNames: 'assets/[name].[hash].js',
+          assetFileNames: 'assets/[name].[hash].[ext]',
+        },
+      },
+    },
+  },
 };

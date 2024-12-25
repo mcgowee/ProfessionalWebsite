@@ -40,8 +40,10 @@
     }
   </style>
   
-  <div on:mouseenter={toggleDropdown} on:mouseleave={closeDropdown} role="menu">
-    <a href="#" class="text-white hover:text-indigo-400">Simple Chats</a>
+  <div on:mouseenter={toggleDropdown} on:mouseleave={closeDropdown} role="menu" tabindex="0">
+    <button class="text-white hover:text-indigo-400" on:click={toggleDropdown}>
+    Simple Chats
+    </button>
     <div class:dropdown-menu={true} class:open={isOpen}>
        <a href="/chat" class="dropdown-item" role="menuitem">
         Simple Chat

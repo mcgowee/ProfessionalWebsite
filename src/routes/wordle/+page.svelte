@@ -4,10 +4,18 @@
   let letters = ['a', 'b', 'c', 'd', 'e']; // Example data
   let colors = ['b', 'b', 'g', 'b', 'b']; // Example data
   let responseMessage = ''; // To display response from Flask
+  let focusedIndex = null; // Declare the variable to store the focused index
 
-  async function submitGuess() {
+  // Function to set the color of the focused letter
+  function setColor(color) {
+    if (focusedIndex !== null) {
+      colors[focusedIndex] = color;
+    }
+  }
+  
+    async function submitGuess() {
   try {
-    const response = await fetch('http://45.132.241.60/api/submit', {
+    const response = await fetch('http://45.132.241.60:5000/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ letters, colors })

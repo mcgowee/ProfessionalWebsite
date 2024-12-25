@@ -1,11 +1,18 @@
-import { c as create_ssr_component, l as each, h as add_attribute, k as escape } from "../../../chunks/ssr.js";
-const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+import { x as ensure_array_like, e as pop, p as push } from "../../../chunks/index.js";
+import { a as attr, e as escape_html } from "../../../chunks/attributes.js";
+function _page($$payload, $$props) {
+  push();
   let prompt = "";
   let messages = [];
-  return `<div class="chat-container svelte-7t9l2w"><h1 data-svelte-h="svelte-1fubonr">Chatbot</h1> <div class="messages">${each(messages, ({ sender, text }) => {
-    return `<div class="message"><span${add_attribute("class", sender === "User" ? "user" : "bot", 0)}>${escape(sender)}:</span> ${escape(text)} </div>`;
-  })}</div> <input type="text" placeholder="Type your message..."${add_attribute("value", prompt, 0)}> <button data-svelte-h="svelte-93q973">Send</button></div>`;
-});
+  const each_array = ensure_array_like(messages);
+  $$payload.out += `<div class="chat-container svelte-7t9l2w"><h1>Chatbot</h1> <div class="messages"><!--[-->`;
+  for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+    let { sender, text } = each_array[$$index];
+    $$payload.out += `<div class="message"><span${attr("class", sender === "User" ? "user" : "bot")}>${escape_html(sender)}:</span> ${escape_html(text)}</div>`;
+  }
+  $$payload.out += `<!--]--></div> <input type="text"${attr("value", prompt)} placeholder="Type your message..."> <button>Send</button></div>`;
+  pop();
+}
 export {
-  Page as default
+  _page as default
 };

@@ -25,12 +25,13 @@
     <p class="mb-4 text-red-500 font-bold">
       Note: To use this application, you will need to sign up with me. Please use the Sign up link in the app below.
     </p>
-    <iframe 
-      src="https://f2b040a11bac.ngrok.app/"
-      width="100%" 
-      height="600" 
-      class="border border-gray-300 rounded-lg">
+    <iframe
+    src="https://f2b040a11bac.ngrok.app/"
+    width="100%"
+    title="OpenAI Web UI Application"
+    >
     </iframe>
+  
   </main>
   
   <style>

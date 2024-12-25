@@ -8,21 +8,22 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@smui/button": "^7.0.0",
-		"@smui/icon-button": "^7.0.0",
-		"@smui/list": "^7.0.0",
-		"@smui/menu": "^7.0.0",
+		"@smui/button": "^8.0.0-beta.2",
+		"@smui/icon-button": "^8.0.0-beta.2",
+		"@smui/list": "^8.0.0-beta.2",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"autoprefixer": "^10.4.19",
 		"postcss": "^8.4.39",
-		"svelte": "^4.2.7",
+		"svelte": "^5.15.0",
 		"tailwindcss": "^3.4.4",
 		"vite": "^5.4.11"
 	},
 	"type": "module",
 	"dependencies": {
+		"@smui/menu": "^8.0.0-beta.2",
+		"@smui/menu-surface": "^8.0.0-beta.2",
 		"@sveltejs/adapter-static": "^3.0.6",
 		"axios": "^1.7.9"
 	}

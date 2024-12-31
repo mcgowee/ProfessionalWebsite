@@ -13,9 +13,9 @@
     }
   }
   
-    async function submitGuess() {
+  async function submitGuess() {
   try {
-    const response = await fetch('http://45.132.241.60:5000/api/submit', {
+    const response = await fetch('http://srv674751.hstgr.cloud:5000/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ letters, colors })
@@ -30,9 +30,10 @@
     responseMessage = result.message;
   } catch (error) {
     console.error('Error connecting to Flask API:', error);
-    responseMessage = 'Failed to connect to the server.';
+    responseMessage = 'Failed to connect to server.';
   }
 }
+
 
 </script>
 

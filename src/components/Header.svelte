@@ -4,7 +4,7 @@
   import Button, { Label } from '@smui/button';
   import ChatMenu from './ChatMenu.svelte';
 
-  let menu: Menu;
+  let menu: any;
   let clicked = 'nothing yet';
 </script>
 
@@ -39,26 +39,50 @@
     </div>
   </div>
   <div class="hidden lg:flex space-x-4">
-    <a href="https://twitter.com/your-twitter-handle" target="_blank" class="text-blue-500 hover:text-blue-700">
+    <a
+      href="https://twitter.com/your-twitter-handle"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Twitter"
+      class="text-blue-500 hover:text-blue-700"
+    >
       <i class="fab fa-twitter"></i>
     </a>
-    <a href="https://www.facebook.com/earlmcgowen/" target="_blank" class="text-blue-500 hover:text-blue-700">
+    <a
+      href="https://www.facebook.com/earlmcgowen/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+      class="text-blue-500 hover:text-blue-700"
+    >
       <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="https://www.linkedin.com/in/earl-l-mcgowen-b510884/" target="_blank" class="text-blue-500 hover:text-blue-700">
+    <a 
+      href="https://www.linkedin.com/in/earl-l-mcgowen-b510884/" 
+      target="_blank" 
+      aria-label="LinkedIn"
+      class="text-blue-500 hover:text-blue-700"
+      >
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a href="http://earlmcgowen.info/" target="_blank" class="text-blue-500 hover:text-blue-700">
-      <i class="fas fa-globe"></i>
-    </a>
-    <a href="https://www.youtube.com/channel/UC-y8DJUix0fjtnLSe5_8bnA" target="_blank" class="text-blue-500 hover:text-blue-700">
+    <a 
+      href="https://www.youtube.com/channel/UC-y8DJUix0fjtnLSe5_8bnA" 
+      target="_blank" 
+      aria-label="Youtube"
+      class="text-blue-500 hover:text-blue-700">
       <i class="fab fa-youtube"></i>
     </a>
   </div>
-  <div class="lg:hidden relative">
-    <Button style="min-width: 100px;" on:click={() => menu.setOpen}>
-      <i class="fas fa-bars"></i>
-    </Button>
+<div class="lg:hidden relative">
+  <button
+    type="button"
+    style="min-width: 100px;"
+    class="smui-button" 
+    on:click={() => menu?.setOpen(true)}
+    aria-label="Open menu"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
     <Menu bind:this={menu}>
       <List>
         <Item>

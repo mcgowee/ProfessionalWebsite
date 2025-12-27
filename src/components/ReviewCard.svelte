@@ -21,12 +21,11 @@
                     ? " right-0 -mr-8 translate-x-1/2"
                     : " left-0 -ml-8 -translate-x-1/2")}
         >
-            <div
-                class="rounded-full bg-slate-950 aspect-square bg-slate-950 h-2"
-            />
+            <div class="rounded-full aspect-square w-2.5 sm:w-3 bg-indigo-300"></div>
+
         </div>
         <div class="flex items-center gap-2">
-            <i class="fa-solid fa-user" />
+        <i class="fa-solid fa-user"></i>
             <h3 class="text-lg sm:text-xl md:text-2xl">
                 {reviewItem.name}
             </h3>

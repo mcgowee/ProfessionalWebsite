@@ -35,15 +35,9 @@
     <div
         class={"flex flex-col dropShadow overflow-hidden rounded-b-lg "}
     >
-        <div
-            class="rounded-t-xl h-8 sm:h-10 bg-white opacity-60 px-3 flex items-center gap-2"
-        >
-            {#each [1, 2, 3] as i}
-                <div
-                    class="rounded-full aspect-square w-2.5 sm:w-3 bg-indigo-300"
-                />
-            {/each}
-        </div>
+        {#each [1, 2, 3] as i}
+        <div class="rounded-full aspect-square w-2.5 sm:w-3 bg-indigo-300"></div>
+        {/each}
         <div class="flex flex-col bg-white gap-4 flex-1">
             <img src={serviceFeature.imgUrl} alt="service-img" />
         </div>
